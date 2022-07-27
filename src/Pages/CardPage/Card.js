@@ -2,6 +2,8 @@ import { Box, IconButton, Stack } from '@mui/material';
 import React from 'react';
 import BookmarksIcon from '@mui/icons-material/Bookmarks';
 import DisplaySettingsIcon from '@mui/icons-material/DisplaySettings';
+import { Products } from '../../fakeDb/Product';
+import SingleProduct from '../../Components/CardPage/SingleProduct';
 
 const Card = () => {
     return (
@@ -17,6 +19,13 @@ const Card = () => {
                     sx={{ bgcolor: '#fff', color: '#171820', borderRadius: 1, ':hover': { bgcolor: '#f7f7f7' } }}>
                     <BookmarksIcon />
                 </IconButton>
+            </Stack>
+            <Stack alignItems="center" justifyContent="center" mt={2} width="100%">
+                <Stack width="80%" flexWrap="wrap" direction="row" alignItems="center" gap={9} justifyContent="center">
+                    {Products.map((singleProduct) => (
+                        <SingleProduct key={singleProduct.id} singleProduct={singleProduct} />
+                    ))}
+                </Stack>
             </Stack>
         </Box>
     );
